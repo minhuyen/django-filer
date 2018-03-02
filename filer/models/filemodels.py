@@ -237,6 +237,8 @@ class File(PolymorphicModel, mixins.IconsMixin):
             return True
         elif self.folder:
             return self.folder.has_generic_permission(request, permission_type)
+        elif not self.folder:
+            return True
         else:
             return False
 
